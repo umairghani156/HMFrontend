@@ -18,6 +18,13 @@ import { getJobsSearchSuccess } from "../../redux/jobsSearch";
 import { useNavigate } from "react-router-dom";
 import { serverUrl } from "../../utils/appConstant";
 
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(2),
+  color: theme.palette.text.secondary,
+}));
+
 
 
 function LatestJobs() {
@@ -52,8 +59,7 @@ function LatestJobs() {
             jobs?.slice(0, 6).map((job)=>(
 
               <Grid item xs={12} sm={6} md={4} lg={4} xl={4} style={{ cursor: "pointer" }} key={job._id} onClick={()=>getAspecificAllJobs(job.designation)}>
-
-              <div className={bgTheme ? "LatestJobs2":'LatestJobs'}>
+               <Item className={bgTheme ? "LatestJobs2":'LatestJobs'}>
                 <div className="LatestJobsHeader">
                   <div className="LatestJobsTitles">
                     <p className="companyName">{job.companyName || "Anonymous"}</p>
@@ -80,8 +86,8 @@ function LatestJobs() {
                   </div>
                 </div>
 
-              </div>
-
+    
+              </Item>
             </Grid>
               ))
            }
