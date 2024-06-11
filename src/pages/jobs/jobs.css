@@ -1,10 +1,7 @@
 .jobsContainer1{
     background-color: #1c1c20 !important;
-    padding: 0 30px !important;
-    
 }
 .jobsContainer2{
-    padding: 0 30px !important;
     height: 100% !important;
     background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(119,218,19,1) 0%, rgba(255,255,255,1) 0%, rgba(244,244,246,1) 99%);
    

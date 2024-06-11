@@ -12,6 +12,7 @@ import useFetch from '../../hook/useFetch'
 import { format } from "timeago.js"
 import { useLocation, useNavigate } from 'react-router-dom';
 import { getSingleJobSuccess } from '../../redux/singleJobSlice'
+import { serverUrl } from '../../utils/appConstant'
 const JobDetail = () => {
   const dispatch = useDispatch()
   const { singleJob } = useSelector(state => state.singleJob)
@@ -36,7 +37,7 @@ const JobDetail = () => {
 
 
 
-  const data = useFetch(`http://localhost:7000/api/jobs/all?limit=10&pageNo=1&keyWord=&category=`, "jobsSearch")
+  const data = useFetch(`${serverUrl}/api/jobs/all?limit=10&pageNo=1&keyWord=&category=`, "jobsSearch")
 
 
   useEffect(() => {
