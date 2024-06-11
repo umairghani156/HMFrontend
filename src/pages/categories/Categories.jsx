@@ -13,6 +13,7 @@ import useFetch from '../../hook/useFetch';
 import HR_LOGO from "../../assets/hRlogo2.png";
 import { useSelector } from 'react-redux';
 import { serverUrl } from '../../utils/appConstant';
+import Hello from '../../components/hello/Hello';
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -33,7 +34,7 @@ function Categories() {
   return (
     <>
     <div>
-        <Navbar/>
+        <Hello/>
     </div>
     <Container className='jobsCon'>
       <div className="title">

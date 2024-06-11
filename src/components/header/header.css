@@ -97,6 +97,18 @@
     padding: 0 !important;
 }
 @media (max-width: 600px) {
+    .searchBarPar{
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+    .searchBtn{
+        height: 40px;
+    }
+    .header{
+        margin-top: 20px !important;
+    }
+
 .headerTitle{
    font-size: 30px !important;
 }

@@ -81,3 +81,8 @@
 .cards{
     border: 2px solid #6851ff !important;
 }
+@media (max-width: 600px) {
+   .jobsCon{
+    margin-top: 0 !important;
+   }
+  }

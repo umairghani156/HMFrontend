@@ -26,7 +26,7 @@ import { Children, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getbgThemeSuccess } from '../../redux/themeSlice';
 import Dropdown from '../dropdown/Dropdown';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { getJobsSearchFailure, getJobsSearchPending, getJobsSearchSuccess } from '../../redux/jobsSearch';
 import { getKeyWordSuccess } from '../../redux/keywordSlice';
@@ -161,6 +161,9 @@ const names7 = [
 ];
 function Hello({ jobs, setKeywordName }) {
   const isTheme = localStorage.getItem("theme");
+  const location = useLocation();
+  const pagePath = location.pathname;
+  console.log(pagePath);
   console.log("theme he kia",isTheme);
   const navigate = useNavigate();
   const handleOpen = () => setOpen(true);
@@ -467,7 +470,7 @@ function Hello({ jobs, setKeywordName }) {
   const jobPlaceInfoHandler = ()=>{
     navigate(`/jobsearch?keyword=&limit=10&jobfeaseability=${personName5[0].toLowerCase()}`)
     const searchInfo = {
-      jobfeaseability: personName5[0] || ""
+      jobFeseability: personName5[0] || ""
     }
     
     dispatch(getKeyWordSuccess(searchInfo))
@@ -554,10 +557,10 @@ setIsTrue7(false)
       <Container className={bgTheme ? "navbarContainer1" : jobs ? 'navbarContainer2' : 'navbarContainer'}>
         <Box>
           <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }} >
-            <Grid item xs={6} sm={3} md={2} lg={2} order={{ xs: 1, sm: 1, md: 1 }} style={{display:"flex",alignItems:"center"}} className={jobs && 'middleNavbarGrid'}>
+            <Grid item xs={8} sm={3} md={2} lg={2} order={{ xs: 1, sm: 1, md: 1 }} style={{display:"flex",alignItems:"center"}} className={jobs && 'middleNavbarGrid'}>
               <Item className='logoImg'>
                 <Link to="/" style={{display:"flex",alignItems:"center"}}>
-                  <img className='logo' src={Logo} alt="" />
+                  <img className={pagePath === "/jobsearch" ?'logo2':"logo"} src={Logo} alt="" />
                 </Link>
               </Item>
             </Grid>
@@ -594,7 +597,7 @@ setIsTrue7(false)
                 </ul>
               </Item>
             </Grid>}
-            <Grid item xs={6} sm={1} md={2} lg={2} order={{ xs: 2, sm: 3, md: 3 }} className={jobs && 'middleNavbarGrid'}>
+            <Grid item xs={4} sm={1} md={2} lg={2} order={{ xs: 2, sm: 3, md: 3 }} className={jobs && 'middleNavbarGrid'}>
               <Item style={{ display: "flex", justifyContent: "end" }}>
                 <Tooltip title="Open settings">
                   <>
