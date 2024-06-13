@@ -58,6 +58,7 @@ function Signup() {
             setTimeout(()=>{
                 navigate("/verifyEmail")
             },2000)
+            //Hello
         } catch (error) {
             let message = error?.response?.data.message
             console.log(message);
